@@ -3,25 +3,26 @@
 particlesJS("particles-js", {
   "particles": {
     "number": {
-      "value": 80, // Parçacık sayısı
+      "value": 100, // Parçacık sayısını artırdık
       "density": {
         "enable": true,
-        "value_area": 800
+        "value_area": 1000
       }
     },
     "color": {
-      "value": "#5e72e4" // Parçacık rengi (var(--color-primary))
+      "value": "#007bff" // Elektrik Mavisi
     },
     "shape": {
-      "type": "circle",
+      "type": "polygon", // Üçgen hissini vermek için çokgen tipi
+      "nb_sides": 3, 
       "stroke": {
-        "width": 0,
-        "color": "#000000"
+        "width": 1,
+        "color": "#00ff66" // Neon Yeşil çizgi
       }
     },
     "opacity": {
-      "value": 0.5,
-      "random": false,
+      "value": 0.7,
+      "random": true,
       "anim": {
         "enable": false
       }
@@ -35,24 +36,19 @@ particlesJS("particles-js", {
     },
     "line_linked": {
       "enable": true,
-      "distance": 150, // Çizgilerin bağlanma mesafesi
-      "color": "#00f2fe", // Çizgi rengi (var(--color-secondary))
-      "opacity": 0.4,
+      "distance": 120, // Bağlantı mesafesini azalttık (daha sıkı ağ)
+      "color": "#00ff66", // Neon Yeşil çizgi
+      "opacity": 0.6,
       "width": 1
     },
     "move": {
       "enable": true,
-      "speed": 3, // Parçacık hareket hızı
+      "speed": 1.5, // Daha yavaş, loş bir hareket
       "direction": "none",
-      "random": false,
+      "random": true,
       "straight": false,
       "out_mode": "out",
-      "bounce": false,
-      "attract": {
-        "enable": false,
-        "rotateX": 600,
-        "rotateY": 1200
-      }
+      "bounce": false
     }
   },
   "interactivity": {
@@ -60,20 +56,24 @@ particlesJS("particles-js", {
     "events": {
       "onhover": {
         "enable": true,
-        "mode": "grab" // Mouse üzerine gelince çekme/bağlanma modu
+        "mode": "repulse" // Mouse'un etrafında parçacıkları iterek üçgen boşluğu oluşturma
       },
       "onclick": {
         "enable": true,
-        "mode": "push" // Tıklayınca yeni parçacık ekleme
+        "mode": "push" 
       },
       "resize": true
     },
     "modes": {
       "grab": {
-        "distance": 140,
+        "distance": 400,
         "line_linked": {
-          "opacity": 1 // Mouse yaklaştığında çizgilerin opaklığını artırır
+          "opacity": 1
         }
+      },
+      "repulse": {
+        "distance": 100, // Mouse'dan itme mesafesi
+        "duration": 0.4
       },
       "push": {
         "particles_nb": 4
