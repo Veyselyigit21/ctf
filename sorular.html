@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorular | Cyber Atü CTF 2025</title>
-    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -14,53 +14,75 @@
     <header class="navbar">
         <div class="logo">Cyber Atü CTF</div>
         <nav>
-            <a href="sorular.html" style="color: var(--color-secondary); text-shadow: 0 0 10px var(--color-secondary);">Sorular</a>
-            <a href="skor.html">Skor Tablosu</a>
-            <a href="#kurallar">Kurallar</a>
-            <a href="#giris" class="btn-primary">Kullanıcı Adı</a>
+            <a href="sorular.html" style="color: var(--color-primary); text-shadow: 0 0 10px var(--color-primary);">SORULAR</a>
+            <a href="skor.html">SKOR TABLOSU</a>
+            <a href="#kurallar">KURALLAR</a>
+            <a href="#giris" class="btn-primary">KULLANICI ADI</a>
         </nav>
     </header>
 
     <main class="container">
-        <h1 style="text-align: center; padding-top: 60px; color: var(--color-primary); font-family: var(--font-heading); text-shadow: 0 0 15px var(--color-primary);">YARIŞMA SORULARI [ACTIVE]</h1>
+        <h1 style="text-align: center; padding-top: 60px; margin-bottom: 40px;">YARIŞMA SORULARI [AÇIK PROTOKOLLER]</h1>
+        
+        <section id="kurallar" style="padding-bottom: 40px;">
+            <h2 style="color: var(--color-primary); margin-bottom: 20px; text-align: center;">YARIŞMA KURALLARI [PROTOKOL SÖZLEŞMESİ]</h2>
+            <div style="background-color: var(--color-card-bg); padding: 30px; border: 1px dashed var(--color-secondary); font-size: 1.1rem;">
+                <p>1. **FLAG FORMATI:** Tüm bayraklar `CYBERATU{...}` formatındadır. Başka formatlar geçersiz sayılacaktır.</p>
+                <p>2. **DDOS YASAKTIR:** Yarışma altyapısına yönelik aşırı yükleme (DDoS) teşebbüsleri anında diskalifiye sebebidir.</p>
+                <p>3. **EKİP ÇALIŞMASI:** Yarışma bireyseldir. Çözümlerinizi sosyal medyada veya diğer platformlarda paylaşmanız yasaktır.</p>
+                <p>4. **KABA KUVVET:** Flag gönderme servisine yönelik aşırı kaba kuvvet denemeleri (Brute Force) geçici IP yasağı ile sonuçlanabilir.</p>
+                <p>5. **ETİK KURALLAR:** Sadece sorunun amaçladığı hedefi hack'leyin. Diğer yarışmacıların sistemlerine veya yarışma altyapısına sızmaya çalışmayın.</p>
+            </div>
+        </section>
 
         <div class="challenge-grid">
             
-            <div class="challenge-card solved">
-                <span class="points">100 Puan <i class="fas fa-terminal"></i></span>
-                <h3>Soru 1: Büyük Düşün</h3>
-                <p class="category">Kriptografi [ÇÖZÜLDÜ]</p>
-                <p style="color: var(--color-text-light);">Erişim sağlandı. Data Extract başarılı.</p>
+            <div class="challenge-card">
+                <span class="points">100 Puan</span>
+                <h3>Soru 1: İLK SİNYAL</h3>
+                <p class="category">KRİPTOGRAFİ</p>
+                <p>Veri akışı bozuk. Uzun bir karakter dizisi içerideki bilgiyi saklıyor. Büyük harfleri izle, klasik şifrelemeyi hatırla. (Dosya: signal.txt)</p>
+                <form class="flag-form" style="margin-top: 20px;"><input type="text" placeholder="CYBERATU{...}" required><button type="submit" class="btn-primary">GÖNDER</button></form>
             </div>
 
             <div class="challenge-card">
                 <span class="points">250 Puan</span>
-                <h3>Soru 6: Girişler Buradan</h3>
-                <p class="category">Web Uygulama [Gereken Erişim Seviyesi: Admin]</p>
-                <p>Güvenlik duvarı güçlü, ancak bir "tamper" denemeye değer. Veri tabanına sız!</p>
-                <form class="flag-form" style="margin-top: 20px;">
-                    <input type="text" placeholder="FLAG{HACK_INPUT_REQUIRED}" style="width: 100%; padding: 10px; margin-bottom: 10px;" required>
-                    <button type="submit" class="btn-primary" style="width: 100%;">Flag'i Gönder</button>
-                </form>
+                <h3>Soru 2: YÖNETİCİ PANELİ</h3>
+                <p class="category">WEB</p>
+                <p>Bir giriş paneli seni bekliyor. SQL hatası görmüyorsun ama veri tabanı senden bir şeyler gizliyor. Blind SQL Injection veya Tamper script denedin mi?</p>
+                <form class="flag-form" style="margin-top: 20px;"><input type="text" placeholder="CYBERATU{...}" required><button type="submit" class="btn-primary">GÖNDER</button></form>
             </div>
             
             <div class="challenge-card">
-                <span class="points">500 Puan</span>
-                <h3>Soru 14: Zaphod Nerede</h3>
-                <p class="category">OSINT [Gizli Kaynak Araştırılıyor...]</p>
-                <p>Bir iz, bir ses frekansı, bir gölge... Kaynakları açığa çıkar ve gizli mesajı yakala.</p>
-                <form class="flag-form" style="margin-top: 20px;">
-                    <input type="text" placeholder="FLAG{HACK_INPUT_REQUIRED}" style="width: 100%; padding: 10px; margin-bottom: 10px;" required>
-                    <button type="submit" class="btn-primary" style="width: 100%;">Flag'i Gönder</button>
-                </form>
+                <span class="points">300 Puan</span>
+                <h3>Soru 3: KAYIP PAKET</h3>
+                <p class="category">ADLİ BİLİŞİM (FORENSICS)</p>
+                <p>EKS sistemi saldırıya uğradı. Bir PCAP dosyası elinde. MODBUS paketleri arasındaki gizli iletişimde hangi dosya indirildi? (Dosya: eks.pcap)</p>
+                <form class="flag-form" style="margin-top: 20px;"><input type="text" placeholder="CYBERATU{...}" required><button type="submit" class="btn-primary">GÖNDER</button></form>
             </div>
             
+            <div class="challenge-card">
+                <span class="points">400 Puan</span>
+                <h3>Soru 4: ZAPHOD'UN İZİ</h3>
+                <p class="category">OSINT</p>
+                <p>Birkaç statik sayfa ve bir isim: Zaphod. İnternetin derinliklerinde, sesten gelen bir görüntüyü ve gizli bir koordinatı bulmalısın. İyi ara.</p>
+                <form class="flag-form" style="margin-top: 20px;"><input type="text" placeholder="CYBERATU{...}" required><button type="submit" class="btn-primary">GÖNDER</button></form>
             </div>
+
+            <div class="challenge-card">
+                <span class="points">500 Puan</span>
+                <h3>Soru 5: UZUNLUK SALDIRISI</h3>
+                <p class="category">WEB / KRİPTO</p>
+                <p>Sadece 3 dosyayı indirebiliyorsun. 4. dosya (4.pdf) için verilen token işe yaramıyor. Token kontrol mekanizmasında bir zafiyet var. Length Extension Attack'ı araştır.</p>
+                <form class="flag-form" style="margin-top: 20px;"><input type="text" placeholder="CYBERATU{...}" required><button type="submit" class="btn-primary">GÖNDER</button></form>
+            </div>
+
+        </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Cyber Atü CTF. Sistem İzleniyor.</p>
+            <p>© 2025 Cyber Atü CTF. SİSTEM İZLENİYOR.</p>
         </div>
     </footer>
 
