@@ -1,11 +1,11 @@
 /* Genel Ayarlar ve Sıfırlamalar */
 :root {
-    /* Deep Cyber Teması Paleti: Koyu Mavi/Mor, Neon Yeşil, Magenta */
-    --color-dark-bg: #0A0A1A; /* Derin Lacivert/Koyu Mor */
+    /* Yeni Dijital Tema Paleti: Koyu Mavi/Mor, Neon Yeşil, Magenta */
+    --color-dark-bg: #0A0A1A; /* Derin Lacivert/Koyu Mor (Arka plan) */
     --color-card-bg: rgba(20, 20, 30, 0.95); /* Şeffaf Koyu Mavi Kartlar */
     --color-primary: #00FF00; /* Neon Yeşil (Ana Vurgu/Başarı) */
     --color-secondary: #FF00FF; /* Parlak Magenta (İkincil Vurgu/Tehlike) */
-    --color-text-light: #E0E0E0;
+    --color-text-light: #E0E0E0; 
     --color-text-muted: #444466;
     
     /* Fontlar */
@@ -13,40 +13,222 @@
     --font-body: 'VT323', monospace; 
 }
 
-/* Kalan CSS kodları (layout, butonlar, animasyon pozisyonları) bir önceki cevaptaki gibi kalmalı
-   Ancak aşağıdakileri kontrol edin: */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-/* Parçacık Arka Planı */
+html, body {
+    height: 100%; 
+}
+
+body {
+    background-color: var(--color-dark-bg);
+    color: var(--color-text-light);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Parçacık Arka Planı (Tüm Sayfada Çalışması İçin Kritik) */
 #particles-js {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-dark-bg); /* YENİ KOYU RENK */
+    background-color: var(--color-dark-bg); 
     z-index: 1; 
+}
+
+/* Diğer İçerik (Animasyonun Üstünde Olması İçin Kritik) */
+.navbar, main, footer {
+    position: relative;
+    z-index: 2; 
+}
+
+main {
+    flex: 1;
 }
 
 /* Navigasyon Çubuğu */
 .navbar {
+    background-color: var(--color-card-bg);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
     border-bottom: 2px solid var(--color-primary);
     box-shadow: 0 4px 15px rgba(0, 255, 0, 0.2);
+    font-family: var(--font-heading);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-shadow: 0 0 10px var(--color-primary);
+}
+
+.navbar a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    margin-left: 25px;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--color-secondary);
+    text-shadow: 0 0 10px var(--color-secondary);
+}
+
+/* Butonlar */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-dark-bg);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0; 
+    font-family: var(--font-heading);
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.1s;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-dark-bg);
+    box-shadow: 0 0 15px var(--color-secondary);
+    transform: skewX(-5deg);
+}
+
+/* Hero Bölümü */
+.hero-section {
+    background: rgba(0, 0, 0, 0.6); 
+    text-align: center;
+    padding: 120px 20px;
 }
 
 .hero-section h1 {
-    /* Neon Efekti Vurguları GÜNCELLENDİ */
+    font-size: 4.5rem;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: var(--color-primary); 
     text-shadow: 
         0 0 15px var(--color-primary),
         0 0 30px rgba(0, 255, 0, 0.5);
+    letter-spacing: 10px;
 }
 
 .countdown-timer {
-    color: var(--color-secondary); /* Magenta */
-    border: 1px dashed var(--color-secondary);
+    font-size: 3rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--color-secondary);
     text-shadow: 0 0 8px var(--color-secondary);
+    padding: 10px;
+    border: 1px dashed var(--color-secondary);
+    display: inline-block;
 }
 
-/* Footer (Footer Sabitleme Düzeltmesi) */
+/* Kartlar ve Formlar */
+.auth-section h2, .leaderboard-section h1, .challenge-grid h1 {
+    font-family: var(--font-heading);
+    color: var(--color-secondary);
+    text-shadow: 0 0 5px var(--color-secondary);
+}
+
+.auth-form, .challenge-card, .leaderboard-table {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    border-radius: 0;
+}
+
+.auth-form input {
+    background-color: #050505;
+    border: 1px solid var(--color-secondary);
+    color: var(--color-primary);
+    padding: 12px;
+    border-radius: 0;
+}
+
+/* Soru Kartları (sorular.html) */
+.challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
+}
+.challenge-card {
+    border-left: 5px solid var(--color-secondary);
+    padding: 30px;
+}
+.challenge-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.5); 
+    border-left: 5px solid var(--color-primary);
+}
+
+.challenge-card h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+}
+
+.challenge-card .points {
+    background-color: var(--color-secondary);
+    color: var(--color-dark-bg);
+    font-family: var(--font-heading);
+    padding: 5px 12px;
+}
+.challenge-card.solved .points {
+    background-color: var(--color-primary);
+    color: var(--color-dark-bg);
+}
+
+/* Skor Tablosu Stilleri (skor.html) */
+.leaderboard-section {
+    padding: 80px 0;
+    text-align: center;
+}
+.leaderboard-table th, .leaderboard-table td {
+    border: 1px solid var(--color-text-muted);
+}
+.leaderboard-table th {
+    background-color: #030303;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+}
+
+.leaderboard-table tr:nth-child(1) td {
+    background-color: rgba(0, 255, 0, 0.15); /* Yeşil */
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-shadow: 0 0 5px var(--color-primary);
+}
+.leaderboard-table tr:nth-child(2) td {
+    background-color: rgba(0, 255, 255, 0.1);
+    color: var(--color-text-light);
+}
+.leaderboard-table tr:nth-child(3) td {
+    background-color: rgba(255, 0, 255, 0.1);
+    color: var(--color-text-light);
+}
+
+
+/* Footer (Sayfanın Altına Sabitleme) */
 footer {
     width: 100%;
     background-color: rgba(10, 10, 26, 0.9); /* Yeni koyu renk */
@@ -56,4 +238,3 @@ footer {
     box-shadow: 0 -4px 15px rgba(0, 255, 0, 0.2);
     margin-top: auto;
 }
-/* ... (Diğer tüm stiller font ve renk değişkenlerini kullanmaya devam edecektir) ... */
