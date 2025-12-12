@@ -3,7 +3,7 @@
 particlesJS("particles-js", {
   "particles": {
     "number": {
-      "value": 120, // Daha yoğun parçacık
+      "value": 120, 
       "density": {
         "enable": true,
         "value_area": 1200
