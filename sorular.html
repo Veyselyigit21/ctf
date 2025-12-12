@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorular | Cyber Atü CTF 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="particles-js"></div> 
+
+    <header class="navbar">
+        <div class="logo">Cyber Atü CTF</div>
+        <nav>
+            <a href="sorular.html" style="color: var(--color-secondary); text-shadow: 0 0 10px var(--color-secondary);">Sorular</a>
+            <a href="skor.html">Skor Tablosu</a>
+            <a href="#kurallar">Kurallar</a>
+            <a href="#giris" class="btn-primary">Kullanıcı Adı</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 style="text-align: center; padding-top: 60px; color: var(--color-primary); font-family: var(--font-heading); text-shadow: 0 0 15px var(--color-primary);">YARIŞMA SORULARI [ACTIVE]</h1>
+
+        <div class="challenge-grid">
+            
+            <div class="challenge-card solved">
+                <span class="points">100 Puan <i class="fas fa-terminal"></i></span>
+                <h3>Soru 1: Büyük Düşün</h3>
+                <p class="category">Kriptografi [ÇÖZÜLDÜ]</p>
+                <p style="color: var(--color-text-light);">Erişim sağlandı. Data Extract başarılı.</p>
+            </div>
+
+            <div class="challenge-card">
+                <span class="points">250 Puan</span>
+                <h3>Soru 6: Girişler Buradan</h3>
+                <p class="category">Web Uygulama [Gereken Erişim Seviyesi: Admin]</p>
+                <p>Güvenlik duvarı güçlü, ancak bir "tamper" denemeye değer. Veri tabanına sız!</p>
+                <form class="flag-form" style="margin-top: 20px;">
+                    <input type="text" placeholder="FLAG{HACK_INPUT_REQUIRED}" style="width: 100%; padding: 10px; margin-bottom: 10px;" required>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Flag'i Gönder</button>
+                </form>
+            </div>
+            
+            <div class="challenge-card">
+                <span class="points">500 Puan</span>
+                <h3>Soru 14: Zaphod Nerede</h3>
+                <p class="category">OSINT [Gizli Kaynak Araştırılıyor...]</p>
+                <p>Bir iz, bir ses frekansı, bir gölge... Kaynakları açığa çıkar ve gizli mesajı yakala.</p>
+                <form class="flag-form" style="margin-top: 20px;">
+                    <input type="text" placeholder="FLAG{HACK_INPUT_REQUIRED}" style="width: 100%; padding: 10px; margin-bottom: 10px;" required>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Flag'i Gönder</button>
+                </form>
+            </div>
+            
+            </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cyber Atü CTF. Sistem İzleniyor.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="particles-config.js"></script>
+</body>
+</html>
