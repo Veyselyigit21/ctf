@@ -1,22 +1,23 @@
-/* particles-config.js */
+/* particles-config.js - SİBER ATÜ CTF NEON GLITCH TEMA */
 
 particlesJS("particles-js", {
   "particles": {
     "number": {
-      "value": 110, // Yoğunluk artırıldı
+      "value": 110, // Parçacık yoğunluğu
       "density": {
         "enable": true,
         "value_area": 1200
       }
     },
     "color": {
-      "value": "#FF4500" // Turuncu Parçacık
+      "value": "#FF4500" // Parçacık rengi (Parlak Turuncu)
     },
     "shape": {
-      "type": "star", // Yıldız şekli (daha agresif)
+      "type": "polygon", // Köşeli ve üçgen formasyonu için şekil
+      "nb_sides": 3,     // Üçgen formasyonu
       "stroke": {
         "width": 1,
-        "color": "#00FF41" // Yeşil Çizgi
+        "color": "#00FF41" // Çizgi rengi (Elektrik Yeşili)
       }
     },
     "opacity": {
@@ -35,14 +36,14 @@ particlesJS("particles-js", {
     },
     "line_linked": {
       "enable": true,
-      "distance": 140, 
+      "distance": 140, // Bağlantı mesafesi
       "color": "#00FF41", // Elektrik Yeşili
       "opacity": 0.5,
       "width": 1
     },
     "move": {
       "enable": true,
-      "speed": 1, // Çok yavaş hareket
+      "speed": 1, // Yavaş, arka plan hareketi
       "direction": "none",
       "random": true,
       "straight": false,
@@ -55,18 +56,20 @@ particlesJS("particles-js", {
     "events": {
       "onhover": {
         "enable": true,
-        "mode": "repulse" // Mouse'un etrafında parçacıkları şiddetle iterek boş alan (üçgen hissi) oluşturma
+        "mode": "grab" // Mouse yaklaştığında çekerek üçgenleri belirginleştirme modu
       },
       "onclick": {
         "enable": true,
-        "mode": "push" 
+        "mode": "push" // Tıklayınca yeni parçacık ekleme
       },
       "resize": true
     },
     "modes": {
-      "repulse": {
-        "distance": 120, // İtme mesafesi
-        "duration": 0.5
+      "grab": {
+        "distance": 150, // Mouse'a yaklaştıkça bağlanma mesafesi
+        "line_linked": {
+          "opacity": 1 // Bağlantıların opaklığını artırır
+        }
       },
       "push": {
         "particles_nb": 4
