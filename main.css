@@ -1,14 +1,14 @@
 /* Genel Ayarlar ve Sıfırlamalar */
 :root {
-    /* Neon Glitch Renk Paleti */
-    --color-dark-bg: #000000; /* Mutlak Siyah */
-    --color-card-bg: rgba(10, 10, 10, 0.9); /* Şeffaf Koyuluk */
-    --color-primary: #FF4500; /* Parlak Turuncu (Vurgu/Tehlike) */
-    --color-secondary: #00FF41; /* Elektrik Yeşili (Başarı/Ana Vurgu) */
-    --color-danger: #FF4500;
-    --color-success: #00FF41;
+    /* Yeni Dijital/Oyun Teması Renk Paleti */
+    --color-dark-bg: #0A0A0A; /* Deep Black */
+    --color-card-bg: rgba(15, 15, 15, 0.95); /* Şeffaf Koyuluk */
+    --color-primary: #00FFFF; /* Elektrik Mavi/Cyan (Vurgu) */
+    --color-secondary: #00FF00; /* Pure Neon Yeşil (Ana Vurgu/Başarı) */
+    --color-danger: #FF00FF; /* Parlak Magenta (Tehlike) */
+    --color-success: #00FF00;
     --color-text-light: #F0F0F0;
-    --color-text-muted: #888888;
+    --color-text-muted: #666666;
     
     /* Fontlar */
     --font-heading: 'Orbitron', monospace;
@@ -44,11 +44,11 @@ body {
     height: 100%;
     background-color: var(--color-dark-bg); 
     z-index: 1; 
-    filter: brightness(0.95);
+    filter: brightness(0.9);
 }
 
-/* Diğer İçerik */
-.navbar, .hero-section, .auth-section, .challenge-grid, footer {
+/* Diğer İçerik - Animasyonun önünde kalması için kritik */
+.navbar, .hero-section, .auth-section, .challenge-grid, footer, .leaderboard-section {
     position: relative;
     z-index: 2; 
 }
@@ -56,13 +56,13 @@ body {
 /* Navigasyon Çubuğu (Navbar) */
 .navbar {
     background-color: var(--color-card-bg);
-    backdrop-filter: blur(8px); /* Daha güçlü bulanıklık */
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 18px 40px;
     border-bottom: 2px solid var(--color-primary);
-    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
 }
 
 .logo {
@@ -91,7 +91,7 @@ body {
     color: var(--color-dark-bg);
     padding: 10px 20px;
     border: none;
-    border-radius: 2px; /* Köşeli butonlar */
+    border-radius: 0; /* Köşeli butonlar */
     font-family: var(--font-heading);
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.1s;
@@ -101,7 +101,7 @@ body {
     background-color: var(--color-secondary);
     color: var(--color-dark-bg);
     box-shadow: 0 0 15px var(--color-secondary);
-    transform: skewX(-5deg); /* Glitch hissi için hafif eğim */
+    transform: skewX(-5deg);
 }
 
 /* Hero Bölümü */
@@ -119,14 +119,10 @@ body {
     color: var(--color-secondary); 
     /* Neon Glitch Parlaması */
     text-shadow: 
-        0 0 10px var(--color-secondary), 
-        0 0 20px rgba(0, 255, 65, 0.8),
-        0 0 40px rgba(0, 255, 65, 0.5);
+        0 0 7px var(--color-primary), 
+        0 0 15px var(--color-secondary),
+        0 0 25px var(--color-secondary);
     letter-spacing: 7px;
-}
-
-.hero-section p {
-    color: var(--color-text-muted);
 }
 
 .countdown-timer {
@@ -138,95 +134,76 @@ body {
     text-shadow: 0 0 5px var(--color-primary);
 }
 
-/* Giriş/Kayıt Bölümü */
-.auth-section {
+/* Kartlar ve Formlar */
+.auth-form, .challenge-card, .leaderboard-table {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-text-muted);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+    border-radius: 0;
+}
+
+/* Soru Kartları (sorular.html) */
+.challenge-card {
+    border-left: 5px solid var(--color-primary);
+}
+.challenge-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.5); 
+    border-left: 5px solid var(--color-secondary);
+}
+
+/* Skor Tablosu Stilleri (skor.html) */
+.leaderboard-section {
     padding: 80px 0;
     text-align: center;
 }
 
-.auth-form {
-    max-width: 400px;
-    margin: 20px auto;
-    background-color: var(--color-card-bg);
-    padding: 40px;
-    border-radius: 2px;
-    border: 1px solid var(--color-text-muted);
-    box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
-}
-
-.auth-form input {
+.leaderboard-table {
     width: 100%;
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid var(--color-secondary);
-    background-color: #111;
-    color: var(--color-text-light);
-    border-radius: 0;
+    max-width: 800px;
+    margin: 40px auto;
+    border-collapse: collapse;
     font-family: var(--font-body);
 }
 
-/* Soru Sayfası Stilleri (sorular.html) */
-.challenge-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 40px 0;
+.leaderboard-table th, .leaderboard-table td {
+    padding: 15px;
+    border: 1px solid var(--color-text-muted);
+    text-align: left;
 }
 
-.challenge-card {
-    background-color: var(--color-card-bg);
-    padding: 30px;
-    border-radius: 0; /* Köşeli kartlar */
-    border-left: 5px solid var(--color-primary);
-    box-shadow: 0 0 10px rgba(255, 69, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.challenge-card:hover {
-    transform: scale(1.02); /* Hafif büyüme */
-    box-shadow: 0 0 25px rgba(0, 255, 65, 0.5); /* Yeşil parlama */
-    border-left: 5px solid var(--color-secondary);
-}
-
-.challenge-card h3 {
-    margin-top: 0;
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
+.leaderboard-table th {
+    background-color: #1A1A1A;
     color: var(--color-secondary);
-}
-
-.challenge-card .points {
-    display: inline-block;
-    background-color: var(--color-primary);
-    color: var(--color-dark-bg);
-    padding: 5px 12px;
-    border-radius: 2px;
-    font-weight: bold;
-    margin-bottom: 15px;
     font-family: var(--font-heading);
+    text-transform: uppercase;
+    text-shadow: 0 0 5px var(--color-secondary);
 }
 
-.challenge-card .category {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
+.leaderboard-table tr:nth-child(1) td {
+    background-color: rgba(0, 255, 0, 0.1);
+    color: var(--color-secondary);
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-shadow: 0 0 5px var(--color-secondary);
+}
+.leaderboard-table tr:nth-child(2) td {
+    background-color: rgba(0, 255, 255, 0.1);
+    color: var(--color-primary);
+}
+.leaderboard-table tr:nth-child(3) td {
+    background-color: rgba(255, 0, 255, 0.1);
+    color: var(--color-danger);
 }
 
-.challenge-card.solved {
-    opacity: 0.8;
-    border-left: 5px solid var(--color-success);
-    box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+.announcement {
+    margin-top: 50px;
+    padding: 20px;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    text-shadow: 0 0 5px var(--color-primary);
 }
-
-.challenge-card.solved .points {
-    background-color: var(--color-success);
-    color: var(--color-dark-bg);
-}
-
-.challenge-card input[type="text"] {
-    background-color: #111;
-    border-color: var(--color-secondary);
-}
-
 
 /* Footer */
 footer {
@@ -235,5 +212,5 @@ footer {
     padding: 25px 0;
     margin-top: 80px;
     border-top: 2px solid var(--color-secondary); 
-    box-shadow: 0 -4px 15px rgba(0, 255, 65, 0.2);
+    box-shadow: 0 -4px 15px rgba(0, 255, 0, 0.2);
 }
