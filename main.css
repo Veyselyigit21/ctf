@@ -1,19 +1,19 @@
 /* Genel Ayarlar ve Sıfırlamalar */
 :root {
-    /* Yeni Dijital/Oyun Teması Renk Paleti */
-    --color-dark-bg: #0A0A0A; /* Deep Black */
-    --color-card-bg: rgba(15, 15, 15, 0.95); /* Şeffaf Koyuluk */
-    --color-primary: #00FFFF; /* Elektrik Mavi/Cyan (Vurgu) */
-    --color-secondary: #00FF00; /* Pure Neon Yeşil (Ana Vurgu/Başarı) */
-    --color-danger: #FF00FF; /* Parlak Magenta (Tehlike) */
-    --color-success: #00FF00;
-    --color-text-light: #F0F0F0;
-    --color-text-muted: #666666;
+    /* Yeni Dijital Tema Paleti: Siyah, Neon Yeşil, Magenta */
+    --color-dark-bg: #000000; /* Mutlak Siyah */
+    --color-card-bg: rgba(5, 5, 5, 0.9); /* Şeffaf Siyah Kartlar */
+    --color-primary: #00FF00; /* Neon Yeşil (Vurgu/Başarı) */
+    --color-secondary: #FF00FF; /* Parlak Magenta (İkincil Vurgu/Tehlike) */
+    --color-text-light: #C0C0C0; /* Gri Beyaz */
+    --color-text-muted: #333333;
     
-    /* Fontlar */
+    /* Fontlar (VT323 terminal hissi için, Orbitron başlıklar için) */
     --font-heading: 'Orbitron', monospace;
-    --font-body: 'Major Mono Display', monospace; 
+    --font-body: 'VT323', monospace; 
 }
+
+/* Google Fonts'ları HTML'e eklediğinizden emin olun! */
 
 * {
     box-sizing: border-box;
@@ -21,12 +21,18 @@
     padding: 0;
 }
 
+html, body {
+    height: 100%; /* Footer sabitleme için kritik */
+}
+
 body {
     background-color: var(--color-dark-bg);
     color: var(--color-text-light);
     font-family: var(--font-body);
     line-height: 1.6;
-    overflow-x: hidden;
+    display: flex; /* Footer sabitleme için */
+    flex-direction: column; /* Footer sabitleme için */
+    min-height: 100vh; /* Footer sabitleme için */
 }
 
 .container {
@@ -35,7 +41,7 @@ body {
     padding: 0 20px;
 }
 
-/* Parçacık Arka Planı */
+/* Parçacık Arka Planı (Sorun Düzeltmesi) */
 #particles-js {
     position: fixed;
     top: 0;
@@ -43,34 +49,37 @@ body {
     width: 100%;
     height: 100%;
     background-color: var(--color-dark-bg); 
-    z-index: 1; 
-    filter: brightness(0.9);
+    z-index: 1; /* En altta kalmalı */
 }
 
-/* Diğer İçerik - Animasyonun önünde kalması için kritik */
-.navbar, .hero-section, .auth-section, .challenge-grid, footer, .leaderboard-section {
+/* Diğer İçerik (Mouse Etkileşimi Düzeltmesi için kritik) */
+.navbar, main, footer {
     position: relative;
-    z-index: 2; 
+    z-index: 2; /* Animasyonun üzerinde kalmalı */
 }
 
-/* Navigasyon Çubuğu (Navbar) */
+main {
+    flex: 1; /* Footer'ı aşağı itmek için */
+}
+
+/* Navigasyon Çubuğu */
 .navbar {
     background-color: var(--color-card-bg);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(5px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 18px 40px;
     border-bottom: 2px solid var(--color-primary);
-    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.2);
+    font-family: var(--font-heading);
 }
 
 .logo {
-    font-size: 1.7rem;
-    font-family: var(--font-heading);
+    font-size: 1.8rem;
     font-weight: 700;
-    color: var(--color-secondary);
-    text-shadow: 0 0 8px var(--color-secondary);
+    color: var(--color-primary);
+    text-shadow: 0 0 10px var(--color-primary);
 }
 
 .navbar a {
@@ -81,8 +90,8 @@ body {
 }
 
 .navbar a:hover {
-    color: var(--color-primary);
-    text-shadow: 0 0 10px var(--color-primary);
+    color: var(--color-secondary);
+    text-shadow: 0 0 10px var(--color-secondary);
 }
 
 /* Butonlar */
@@ -91,7 +100,7 @@ body {
     color: var(--color-dark-bg);
     padding: 10px 20px;
     border: none;
-    border-radius: 0; /* Köşeli butonlar */
+    border-radius: 0; 
     font-family: var(--font-heading);
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.1s;
@@ -106,111 +115,106 @@ body {
 
 /* Hero Bölümü */
 .hero-section {
-    background: rgba(0, 0, 0, 0.7); 
+    background: rgba(0, 0, 0, 0.6); 
     text-align: center;
-    padding: 140px 20px;
+    padding: 120px 20px;
 }
 
 .hero-section h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-family: var(--font-heading);
     font-weight: 900;
     margin-bottom: 20px;
-    color: var(--color-secondary); 
-    /* Neon Glitch Parlaması */
+    color: var(--color-primary); 
     text-shadow: 
-        0 0 7px var(--color-primary), 
-        0 0 15px var(--color-secondary),
-        0 0 25px var(--color-secondary);
-    letter-spacing: 7px;
+        0 0 15px var(--color-primary),
+        0 0 30px rgba(0, 255, 0, 0.5);
+    letter-spacing: 10px;
+}
+
+.hero-section p {
+    color: var(--color-text-light);
+    font-size: 1.2rem;
 }
 
 .countdown-timer {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-family: var(--font-heading);
     font-weight: 700;
     margin-bottom: 30px;
-    color: var(--color-primary);
-    text-shadow: 0 0 5px var(--color-primary);
+    color: var(--color-secondary);
+    text-shadow: 0 0 8px var(--color-secondary);
+    padding: 10px;
+    border: 1px dashed var(--color-secondary);
+    display: inline-block;
 }
 
 /* Kartlar ve Formlar */
+.auth-section h2, .leaderboard-section h1, .challenge-grid h1 {
+    font-family: var(--font-heading);
+    color: var(--color-secondary);
+    text-shadow: 0 0 5px var(--color-secondary);
+}
+
 .auth-form, .challenge-card, .leaderboard-table {
     background-color: var(--color-card-bg);
-    border: 1px solid var(--color-text-muted);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    border-radius: 0;
+}
+
+.auth-form input {
+    background-color: #050505;
+    border: 1px solid var(--color-secondary);
+    color: var(--color-primary);
+    padding: 12px;
     border-radius: 0;
 }
 
 /* Soru Kartları (sorular.html) */
 .challenge-card {
-    border-left: 5px solid var(--color-primary);
+    border-left: 5px solid var(--color-secondary);
+    padding: 30px;
 }
 .challenge-card:hover {
     transform: scale(1.02);
     box-shadow: 0 0 25px rgba(0, 255, 0, 0.5); 
-    border-left: 5px solid var(--color-secondary);
+    border-left: 5px solid var(--color-primary);
 }
 
-/* Skor Tablosu Stilleri (skor.html) */
-.leaderboard-section {
-    padding: 80px 0;
-    text-align: center;
+.challenge-card h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
 }
 
-.leaderboard-table {
-    width: 100%;
-    max-width: 800px;
-    margin: 40px auto;
-    border-collapse: collapse;
-    font-family: var(--font-body);
+.challenge-card .points {
+    background-color: var(--color-secondary);
+    color: var(--color-dark-bg);
+    font-family: var(--font-heading);
+    padding: 5px 12px;
+}
+.challenge-card.solved .points {
+    background-color: var(--color-primary);
+    color: var(--color-dark-bg);
 }
 
+/* Skor Tablosu */
 .leaderboard-table th, .leaderboard-table td {
-    padding: 15px;
     border: 1px solid var(--color-text-muted);
-    text-align: left;
 }
-
 .leaderboard-table th {
-    background-color: #1A1A1A;
-    color: var(--color-secondary);
-    font-family: var(--font-heading);
-    text-transform: uppercase;
-    text-shadow: 0 0 5px var(--color-secondary);
-}
-
-.leaderboard-table tr:nth-child(1) td {
-    background-color: rgba(0, 255, 0, 0.1);
-    color: var(--color-secondary);
-    font-weight: bold;
-    font-size: 1.1rem;
-    text-shadow: 0 0 5px var(--color-secondary);
-}
-.leaderboard-table tr:nth-child(2) td {
-    background-color: rgba(0, 255, 255, 0.1);
-    color: var(--color-primary);
-}
-.leaderboard-table tr:nth-child(3) td {
-    background-color: rgba(255, 0, 255, 0.1);
-    color: var(--color-danger);
-}
-
-.announcement {
-    margin-top: 50px;
-    padding: 20px;
-    border: 2px solid var(--color-primary);
+    background-color: #030303;
     color: var(--color-primary);
     font-family: var(--font-heading);
-    text-shadow: 0 0 5px var(--color-primary);
 }
 
-/* Footer */
+/* Footer (Footer Sabitleme Düzeltmesi) */
 footer {
-    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
     text-align: center;
-    padding: 25px 0;
-    margin-top: 80px;
-    border-top: 2px solid var(--color-secondary); 
+    padding: 20px 0;
+    border-top: 2px solid var(--color-primary); 
     box-shadow: 0 -4px 15px rgba(0, 255, 0, 0.2);
+    margin-top: auto; /* Footer'ı sayfanın altına iter */
 }
