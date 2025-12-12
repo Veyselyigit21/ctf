@@ -1,0 +1,200 @@
+/* Genel Ayarlar ve Sıfırlamalar */
+:root {
+    --color-dark: #1e1e2f;
+    --color-primary: #5e72e4; /* Mavi/Mor vurgu */
+    --color-secondary: #00f2fe; /* Turkuaz vurgu */
+    --color-success: #2dce89;
+    --color-danger: #f5365c;
+    --color-text-light: #f8f9fe;
+    --color-text-muted: #adb5bd;
+    --color-card-bg: #2d2d48;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-dark);
+    color: var(--color-text-light);
+    font-family: var(--font-family);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Parçacık Arka Planı */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-dark); 
+    z-index: 1; /* Diğer içeriğin altında kalması için */
+}
+
+/* Diğer İçerik - Arka planın üstünde olmalı */
+.navbar, .hero-section, .auth-section, .challenge-grid, footer {
+    position: relative;
+    z-index: 2; 
+}
+
+/* Navigasyon Çubuğu (Navbar) */
+.navbar {
+    background-color: var(--color-card-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.navbar a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    margin-left: 25px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--color-secondary);
+}
+
+/* Butonlar */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-primary:hover {
+    background-color: #4a54c9; 
+}
+
+.btn-large {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+}
+
+/* Hero Bölümü */
+.hero-section {
+    background: rgba(30, 30, 47, 0.7); /* Hafif şeffaf arkaplan */
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--color-secondary);
+}
+
+.countdown-timer {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: var(--color-primary);
+}
+
+/* Giriş/Kayıt Bölümü */
+.auth-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.auth-form {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: var(--color-card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-primary);
+    background-color: var(--color-dark);
+    color: var(--color-text-light);
+    border-radius: 4px;
+}
+
+/* Soru Sayfası Stilleri (sorular.html) */
+.challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.challenge-card {
+    background-color: var(--color-card-bg);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid var(--color-primary);
+    transition: transform 0.3s ease;
+}
+
+.challenge-card:hover {
+    transform: translateY(-5px);
+}
+
+.challenge-card h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+}
+
+.challenge-card .points {
+    display: inline-block;
+    background-color: var(--color-primary);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.challenge-card .category {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.challenge-card.solved {
+    opacity: 0.6;
+    border-left: 5px solid var(--color-success);
+}
+
+.challenge-card.solved .points {
+    background-color: var(--color-success);
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-card-bg);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    border-top: 1px solid var(--color-primary);
+}
