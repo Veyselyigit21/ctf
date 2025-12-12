@@ -1,220 +1,59 @@
 /* Genel Ayarlar ve Sıfırlamalar */
 :root {
-    /* Yeni Dijital Tema Paleti: Siyah, Neon Yeşil, Magenta */
-    --color-dark-bg: #000000; /* Mutlak Siyah */
-    --color-card-bg: rgba(5, 5, 5, 0.9); /* Şeffaf Siyah Kartlar */
-    --color-primary: #00FF00; /* Neon Yeşil (Vurgu/Başarı) */
+    /* Deep Cyber Teması Paleti: Koyu Mavi/Mor, Neon Yeşil, Magenta */
+    --color-dark-bg: #0A0A1A; /* Derin Lacivert/Koyu Mor */
+    --color-card-bg: rgba(20, 20, 30, 0.95); /* Şeffaf Koyu Mavi Kartlar */
+    --color-primary: #00FF00; /* Neon Yeşil (Ana Vurgu/Başarı) */
     --color-secondary: #FF00FF; /* Parlak Magenta (İkincil Vurgu/Tehlike) */
-    --color-text-light: #C0C0C0; /* Gri Beyaz */
-    --color-text-muted: #333333;
+    --color-text-light: #E0E0E0;
+    --color-text-muted: #444466;
     
-    /* Fontlar (VT323 terminal hissi için, Orbitron başlıklar için) */
+    /* Fontlar */
     --font-heading: 'Orbitron', monospace;
     --font-body: 'VT323', monospace; 
 }
 
-/* Google Fonts'ları HTML'e eklediğinizden emin olun! */
+/* Kalan CSS kodları (layout, butonlar, animasyon pozisyonları) bir önceki cevaptaki gibi kalmalı
+   Ancak aşağıdakileri kontrol edin: */
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    height: 100%; /* Footer sabitleme için kritik */
-}
-
-body {
-    background-color: var(--color-dark-bg);
-    color: var(--color-text-light);
-    font-family: var(--font-body);
-    line-height: 1.6;
-    display: flex; /* Footer sabitleme için */
-    flex-direction: column; /* Footer sabitleme için */
-    min-height: 100vh; /* Footer sabitleme için */
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Parçacık Arka Planı (Sorun Düzeltmesi) */
+/* Parçacık Arka Planı */
 #particles-js {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-dark-bg); 
-    z-index: 1; /* En altta kalmalı */
-}
-
-/* Diğer İçerik (Mouse Etkileşimi Düzeltmesi için kritik) */
-.navbar, main, footer {
-    position: relative;
-    z-index: 2; /* Animasyonun üzerinde kalmalı */
-}
-
-main {
-    flex: 1; /* Footer'ı aşağı itmek için */
+    background-color: var(--color-dark-bg); /* YENİ KOYU RENK */
+    z-index: 1; 
 }
 
 /* Navigasyon Çubuğu */
 .navbar {
-    background-color: var(--color-card-bg);
-    backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 40px;
     border-bottom: 2px solid var(--color-primary);
     box-shadow: 0 4px 15px rgba(0, 255, 0, 0.2);
-    font-family: var(--font-heading);
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    text-shadow: 0 0 10px var(--color-primary);
-}
-
-.navbar a {
-    color: var(--color-text-light);
-    text-decoration: none;
-    margin-left: 25px;
-    transition: color 0.3s, text-shadow 0.3s;
-}
-
-.navbar a:hover {
-    color: var(--color-secondary);
-    text-shadow: 0 0 10px var(--color-secondary);
-}
-
-/* Butonlar */
-.btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-dark-bg);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 0; 
-    font-family: var(--font-heading);
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s, transform 0.1s;
-}
-
-.btn-primary:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-dark-bg);
-    box-shadow: 0 0 15px var(--color-secondary);
-    transform: skewX(-5deg);
-}
-
-/* Hero Bölümü */
-.hero-section {
-    background: rgba(0, 0, 0, 0.6); 
-    text-align: center;
-    padding: 120px 20px;
 }
 
 .hero-section h1 {
-    font-size: 4.5rem;
-    font-family: var(--font-heading);
-    font-weight: 900;
-    margin-bottom: 20px;
-    color: var(--color-primary); 
+    /* Neon Efekti Vurguları GÜNCELLENDİ */
     text-shadow: 
         0 0 15px var(--color-primary),
         0 0 30px rgba(0, 255, 0, 0.5);
-    letter-spacing: 10px;
-}
-
-.hero-section p {
-    color: var(--color-text-light);
-    font-size: 1.2rem;
 }
 
 .countdown-timer {
-    font-size: 3rem;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: var(--color-secondary);
-    text-shadow: 0 0 8px var(--color-secondary);
-    padding: 10px;
+    color: var(--color-secondary); /* Magenta */
     border: 1px dashed var(--color-secondary);
-    display: inline-block;
-}
-
-/* Kartlar ve Formlar */
-.auth-section h2, .leaderboard-section h1, .challenge-grid h1 {
-    font-family: var(--font-heading);
-    color: var(--color-secondary);
-    text-shadow: 0 0 5px var(--color-secondary);
-}
-
-.auth-form, .challenge-card, .leaderboard-table {
-    background-color: var(--color-card-bg);
-    border: 1px solid var(--color-primary);
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
-    border-radius: 0;
-}
-
-.auth-form input {
-    background-color: #050505;
-    border: 1px solid var(--color-secondary);
-    color: var(--color-primary);
-    padding: 12px;
-    border-radius: 0;
-}
-
-/* Soru Kartları (sorular.html) */
-.challenge-card {
-    border-left: 5px solid var(--color-secondary);
-    padding: 30px;
-}
-.challenge-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 25px rgba(0, 255, 0, 0.5); 
-    border-left: 5px solid var(--color-primary);
-}
-
-.challenge-card h3 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-}
-
-.challenge-card .points {
-    background-color: var(--color-secondary);
-    color: var(--color-dark-bg);
-    font-family: var(--font-heading);
-    padding: 5px 12px;
-}
-.challenge-card.solved .points {
-    background-color: var(--color-primary);
-    color: var(--color-dark-bg);
-}
-
-/* Skor Tablosu */
-.leaderboard-table th, .leaderboard-table td {
-    border: 1px solid var(--color-text-muted);
-}
-.leaderboard-table th {
-    background-color: #030303;
-    color: var(--color-primary);
-    font-family: var(--font-heading);
+    text-shadow: 0 0 8px var(--color-secondary);
 }
 
 /* Footer (Footer Sabitleme Düzeltmesi) */
 footer {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(10, 10, 26, 0.9); /* Yeni koyu renk */
     text-align: center;
     padding: 20px 0;
     border-top: 2px solid var(--color-primary); 
     box-shadow: 0 -4px 15px rgba(0, 255, 0, 0.2);
-    margin-top: auto; /* Footer'ı sayfanın altına iter */
+    margin-top: auto;
 }
+/* ... (Diğer tüm stiller font ve renk değişkenlerini kullanmaya devam edecektir) ... */
