@@ -3,25 +3,24 @@
 particlesJS("particles-js", {
   "particles": {
     "number": {
-      "value": 100, // Parçacık sayısını artırdık
+      "value": 110, // Yoğunluk artırıldı
       "density": {
         "enable": true,
-        "value_area": 1000
+        "value_area": 1200
       }
     },
     "color": {
-      "value": "#007bff" // Elektrik Mavisi
+      "value": "#FF4500" // Turuncu Parçacık
     },
     "shape": {
-      "type": "polygon", // Üçgen hissini vermek için çokgen tipi
-      "nb_sides": 3, 
+      "type": "star", // Yıldız şekli (daha agresif)
       "stroke": {
         "width": 1,
-        "color": "#00ff66" // Neon Yeşil çizgi
+        "color": "#00FF41" // Yeşil Çizgi
       }
     },
     "opacity": {
-      "value": 0.7,
+      "value": 0.8,
       "random": true,
       "anim": {
         "enable": false
@@ -36,14 +35,14 @@ particlesJS("particles-js", {
     },
     "line_linked": {
       "enable": true,
-      "distance": 120, // Bağlantı mesafesini azalttık (daha sıkı ağ)
-      "color": "#00ff66", // Neon Yeşil çizgi
-      "opacity": 0.6,
+      "distance": 140, 
+      "color": "#00FF41", // Elektrik Yeşili
+      "opacity": 0.5,
       "width": 1
     },
     "move": {
       "enable": true,
-      "speed": 1.5, // Daha yavaş, loş bir hareket
+      "speed": 1, // Çok yavaş hareket
       "direction": "none",
       "random": true,
       "straight": false,
@@ -56,7 +55,7 @@ particlesJS("particles-js", {
     "events": {
       "onhover": {
         "enable": true,
-        "mode": "repulse" // Mouse'un etrafında parçacıkları iterek üçgen boşluğu oluşturma
+        "mode": "repulse" // Mouse'un etrafında parçacıkları şiddetle iterek boş alan (üçgen hissi) oluşturma
       },
       "onclick": {
         "enable": true,
@@ -65,15 +64,9 @@ particlesJS("particles-js", {
       "resize": true
     },
     "modes": {
-      "grab": {
-        "distance": 400,
-        "line_linked": {
-          "opacity": 1
-        }
-      },
       "repulse": {
-        "distance": 100, // Mouse'dan itme mesafesi
-        "duration": 0.4
+        "distance": 120, // İtme mesafesi
+        "duration": 0.5
       },
       "push": {
         "particles_nb": 4
