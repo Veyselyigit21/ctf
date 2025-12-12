@@ -18,31 +18,51 @@
         <nav>
             <a href="sorular.html">SORULAR</a>
             <a href="skor.html">SKOR TABLOSU</a>
-            <a href="#kurallar">KURALLAR</a>
+            <a href="kurallar.html">KURALLAR</a>
             <a href="#giris" class="btn-primary">GİRİŞ YAP</a>
         </nav>
     </header>
 
-    <main class="hero-section">
-        <div class="container">
-            <h1>1. CYBER ATÜ CTF YARIŞMASI <i class="fas fa-terminal"></i></h1>
-            <p style="color: var(--color-secondary); margin-bottom: 10px; text-shadow: 0 0 5px var(--color-secondary);">[SİSTEMİ HACK'LE. BAYRAĞI ELE GEÇİR. İNSANLIĞIN SINIRLARINI ZORLA.]</p>
-            <div class="countdown-timer">00:00:00</div>
-            <a href="#kayit" class="btn-primary btn-large">KAYIT OL [HACK GİRİŞİMİ BAŞLATILIYOR]</a>
+    <main>
+        <div class="hero-section">
+            <div class="container">
+                <h1>1. CYBER ATÜ CTF YARIŞMASI <i class="fas fa-terminal"></i></h1>
+                <p style="color: var(--color-secondary); margin-bottom: 10px; text-shadow: 0 0 5px var(--color-secondary);">[SİSTEMİ HACK'LE. BAYRAĞI ELE GEÇİR. İNSANLIĞIN SINIRLARINI ZORLA.]</p>
+                <div class="countdown-timer">00:00:00</div>
+                <a href="#giris" class="btn-primary btn-large">KAYIT OL [HACK GİRİŞİMİ BAŞLATILIYOR]</a>
+            </div>
         </div>
-    </main>
+        
+        <section class="container" style="padding: 60px 0; text-align: center;">
+            <h2 style="font-family: var(--font-heading); color: var(--color-primary); margin-bottom: 30px;">[OPERASYON ÖZETİ]</h2>
+            <div class="challenge-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div style="background-color: var(--color-card-bg); padding: 25px; border-left: 3px solid var(--color-primary);">
+                    <h3 style="color: var(--color-secondary); margin-bottom: 10px;"><i class="fas fa-flag"></i> 15 GÖREV</h3>
+                    <p style="font-size: 1.1rem;">Web, Kripto, Forensics ve Tersine Mühendislik kategorilerinde 15 kritik güvenlik açığı sizi bekliyor.</p>
+                </div>
+                <div style="background-color: var(--color-card-bg); padding: 25px; border-left: 3px solid var(--color-secondary);">
+                    <h3 style="color: var(--color-secondary); margin-bottom: 10px;"><i class="fas fa-clock"></i> 24 SAAT</h3>
+                    <p style="font-size: 1.1rem;">Sınırlı zaman penceresi. Hız ve hassasiyet, birincil hedefinizdir.</p>
+                </div>
+                <div style="background-color: var(--color-card-bg); padding: 25px; border-left: 3px solid var(--color-primary);">
+                    <h3 style="color: var(--color-secondary); margin-bottom: 10px;"><i class="fas fa-trophy"></i> ÖDÜL HAVUZU</h3>
+                    <p style="font-size: 1.1rem;">İlk 3'e giren katılımcılarımız değerli siber güvenlik eğitim paketleri ve donanımlar kazanacaktır.</p>
+                </div>
+            </div>
+        </section>
 
-    <section id="giris" class="auth-section">
-        <div class="container">
-            <h2>GİRİŞ YAP</h2>
-            <form class="auth-form">
-                <input type="text" placeholder="KULLANICI ADI" required>
-                <input type="password" placeholder="PAROLA" required>
-                <button type="submit" class="btn-primary">GİRİŞ YAP</button>
-            </form>
-            <p><a href="#kayit" style="color: var(--color-secondary);">HESABIN YOK MU? YENİ HESAP YARAT</a></p>
-        </div>
-    </section>
+        <section id="giris" class="auth-section">
+            <div class="container">
+                <h2>GİRİŞ YAP / KAYIT OLUŞTUR</h2>
+                <form class="auth-form">
+                    <input type="text" placeholder="KULLANICI ADI" required>
+                    <input type="password" placeholder="PAROLA" required>
+                    <button type="submit" class="btn-primary">GİRİŞ YAP</button>
+                </form>
+                <p><a href="#kayit" style="color: var(--color-secondary);">HESABIN YOK MU? YENİ HESAP YARAT</a></p>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
