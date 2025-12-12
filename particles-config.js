@@ -3,42 +3,36 @@
 particlesJS("particles-js", {
   "particles": {
     "number": {
-      "value": 110, 
+      "value": 120, // Daha yoğun parçacık
       "density": {
         "enable": true,
         "value_area": 1200
       }
     },
     "color": {
-      "value": "#00FFFF" // Parçacık rengi (Elektrik Mavi)
+      "value": "#00FF00" // Neon Yeşil Parçacık
     },
     "shape": {
       "type": "polygon", 
       "nb_sides": 3,     
       "stroke": {
         "width": 1,
-        "color": "#00FF00" // Çizgi rengi (Neon Yeşil)
+        "color": "#FF00FF" // Magenta Çizgi
       }
     },
     "opacity": {
       "value": 0.8,
       "random": true,
-      "anim": {
-        "enable": false
-      }
     },
     "size": {
       "value": 3,
       "random": true,
-      "anim": {
-        "enable": false
-      }
     },
     "line_linked": {
       "enable": true,
       "distance": 140, 
-      "color": "#00FF00", 
-      "opacity": 0.5,
+      "color": "#FF00FF", // Magenta Çizgiler
+      "opacity": 0.4,
       "width": 1
     },
     "move": {
@@ -56,7 +50,7 @@ particlesJS("particles-js", {
     "events": {
       "onhover": {
         "enable": true,
-        "mode": "grab" // Mouse yaklaştığında parçacıkları çekerek üçgenleri belirginleştirir
+        "mode": "grab" // Mouse'a yaklaşınca çekerek üçgenleri belirginleştirme
       },
       "onclick": {
         "enable": true,
